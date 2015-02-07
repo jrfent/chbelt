@@ -1,5 +1,7 @@
 class SubcategoriesController < ApplicationController
   before_action :set_subcategory, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index]
+
 
   respond_to :html
 
