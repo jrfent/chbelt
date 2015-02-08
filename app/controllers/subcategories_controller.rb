@@ -6,7 +6,7 @@ class SubcategoriesController < ApplicationController
   respond_to :html
 
   def index
-    @subcategories = Subcategory.all
+    @subcategories = Subcategory.all.order("category_id")
     respond_with(@subcategories)
   end
 
