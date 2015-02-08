@@ -11,14 +11,17 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_field :description %>
+
+  <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_field :description, class: "form-control" %>
   </div>
-  <div class="field">
-    <%= f.label :category_id %><br>
-    <%= f.number_field :category_id %>
+  
+  <div class="form-group">
+  <% options = options_from_collection_for_select(Category.all, 'id', 'description') %>
+  <%= f.select :category_id, options, :input_html => { class: "form-control" } %>
   </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

@@ -16,12 +16,14 @@
     <%= f.text_field :description, class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.label :category_id %>
-    <%= f.number_field :category_id, class: "form-control" %>
+  <%= f.label "Category" %>
+  <% options = options_from_collection_for_select(Category.all, 'id', 'description') %>
+  <%= f.select :category_id, options, :input_html => { class: "form-control" } %>
   </div>
   <div class="form-group">
-    <%= f.label :subcategory_id %>
-    <%= f.number_field :subcategory_id, class: "form-control" %>
+  <%= f.label "Sub-Category" %>
+  <% options = options_from_collection_for_select(Subcategory.all, 'id', 'description') %>
+  <%= f.select :subcategory_id, options, :input_html => { class: "form-control" } %>
   </div>
   <div class="form-group">
     <%= f.label :image %>

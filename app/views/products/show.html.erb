@@ -3,7 +3,7 @@
 <p>
   <strong>Description:</strong><br>
   <%= @product.description %><br>
-  <%= link_to 'Spec Sheet (PDF)', @product.document.url, :target => "_blank"%><br>
+  <%= link_to 'Spec Sheet (PDF)', @product.document.url, :target => "_blank" %><br>
 </p><br>
 <% if @product.user == current_user %>
       <%= link_to edit_product_path(@product) do %>
