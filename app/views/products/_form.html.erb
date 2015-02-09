@@ -31,7 +31,7 @@
   </div>
   <div class="form-group">
   <%= f.label "Sub-Category" %>
-  <% options = options_from_collection_for_select(Subcategory.all, 'id', 'description') %>
+  <% options = options_from_collection_for_select(Subcategory.all.order("category_id", "description"), 'id', 'description') %>
   <%= f.select :subcategory_id, options, :input_html => { class: "form-control" } %>
   </div>
   <div class="form-group">
