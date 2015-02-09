@@ -5,7 +5,7 @@
 	  <%= @product.description %><br>
 	  <b>Label: &nbsp<%= @product.label %><br>
 	  <b>Grade: &nbsp<%= @product.grade %><br>
-	  <b>Pack Size: &nbsp<%= @product.label %><br>  
+	  <b>Pack Size: &nbsp<%= @product.pack_size %><br>  
 			<% if @product.document.file? %>
 			  <%= link_to 'Spec Sheet (PDF)', @product.document.url, :target => "_blank" %><br>
 			<% end %>

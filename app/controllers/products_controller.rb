@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @products = Product.all.order("category_id", "subcategory_id", "pname").paginate(:page => params[:page], :per_page => 16)
+    @products = Product.all.order("category_id", "pname").paginate(:page => params[:page], :per_page => 16)
   end
 
   def show
