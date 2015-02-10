@@ -14,7 +14,7 @@
 			  <%= link_to 'Spec Sheet (PDF)', product.document.url, :target => "_blank" %><br>
 			<% end %>
 			<%= link_to 'Show', product_path(product) %>
-        <% if product.user == current_user %>
+        <% if user_signed_in? %>
             <%= link_to edit_product_path(product) do %>
               <span class="glyphicon glyphicon-edit"></span>
               Edit

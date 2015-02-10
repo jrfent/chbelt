@@ -7,7 +7,7 @@ class ProductsController < ApplicationController
   end
   
   def pinview
-    @products = Product.all.order("category_id", "pname").paginate(:page => params[:page], :per_page => 16)
+    @products = Product.all.order("category_id", "pname").paginate(:page => params[:page], :per_page => 30)
   end
 
   def show
