@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   resources :products
   devise_for :users
   get "about" => "pages#about"
+  get "pinview" => "products#pinview"
   root "products#index"
-
 end

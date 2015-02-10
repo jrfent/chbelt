@@ -1,0 +1,36 @@
+<div id="products" class="transitions-enabled">
+  <% @products.each do |product| %>
+    <div class="box panel panel-default">
+      <%= link_to image_tag(product.image.url(:medium)), product %>
+      <div class="panel-body">
+		<h3><%= product.pname %></h3>  
+        <p><%= product.description %><br>
+		<b>Label: &nbsp</b><%= product.label %><br>
+		<b>Grade: &nbsp</b><%= product.grade %><br>
+		<b>Pack Size: &nbsp</b><%= product.pack_size %><br>
+			<% if product.document.file? %>
+			  <%= link_to 'Spec Sheet (PDF)', product.document.url, :target => "_blank" %><br>
+			<% end %>
+			<%= link_to 'Show', product_path(product) %>
+        <% if product.user == current_user %>
+            <%= link_to edit_product_path(product) do %>
+              <span class="glyphicon glyphicon-edit"></span>
+              Edit
+            <% end %>
+            <%= link_to product, method: :delete, data: { confirm: 'Are you sure?' } do %>
+              <span class="glyphicon glyphicon-trash"></span>
+              Delete
+            <% end %>
+			<% end %>
+		</p>
+      </div>
+    </div>
+  <% end %>
+</div>
+<div class="center">
+   <%= will_paginate @posts, renderer: BootstrapPagination::Rails %>
+</div>
+
+
+
+
