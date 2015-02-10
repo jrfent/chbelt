@@ -4,7 +4,9 @@
       <%= link_to image_tag(product.image.url(:medium)), product %>
       <div class="panel-body">
 		<h3><%= product.pname %></h3>  
-        <p><%= product.description %><br>
+        <% if product.description? %>
+		<%= product.description %><br>
+		<% end %>
 		<b>Label: &nbsp</b><%= product.label %><br>
 		<b>Grade: &nbsp</b><%= product.grade %><br>
 		<b>Pack Size: &nbsp</b><%= product.pack_size %><br>
