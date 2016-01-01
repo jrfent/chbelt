@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150209020252) do
+ActiveRecord::Schema.define(version: 20151225192603) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -54,6 +54,19 @@ ActiveRecord::Schema.define(version: 20150209020252) do
 
   add_index "categories", ["description"], name: "index_categories_on_description"
 
+  create_table "friendly_id_slugs", force: true do |t|
+    t.string   "slug",                      null: false
+    t.integer  "sluggable_id",              null: false
+    t.string   "sluggable_type", limit: 50
+    t.string   "scope"
+    t.datetime "created_at"
+  end
+
+  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
+  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
+  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
+
   create_table "products", force: true do |t|
     t.string   "description"
     t.datetime "created_at"
@@ -73,9 +86,11 @@ ActiveRecord::Schema.define(version: 20150209020252) do
     t.string   "grade"
     t.string   "label"
     t.string   "pack_size"
+    t.string   "slug"
   end
 
   add_index "products", ["category_id"], name: "index_products_on_category_id"
+  add_index "products", ["slug"], name: "index_products_on_slug"
   add_index "products", ["subcategory_id"], name: "index_products_on_subcategory_id"
   add_index "products", ["user_id"], name: "index_products_on_user_id"
 

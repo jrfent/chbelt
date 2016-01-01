@@ -17,6 +17,7 @@ gem 'devise', '~> 3.4.1'
 gem 'paperclip', github: 'thoughtbot/paperclip'
 gem 'aws-sdk', '~> 1.20.0'
 gem 'masonry-rails'
+gem 'friendly_id'
 
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
